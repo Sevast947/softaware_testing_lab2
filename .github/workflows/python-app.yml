@@ -36,3 +36,8 @@ jobs:
       - name: Test with pytest
         run: |
           pytest -v tests/TestUser.py tests/TestBankAccount.py
+          coverage  run "./tests/TestUser.py" 
+          coverage  run "./tests/TestBankAccount.py"
+
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v2.2.3
