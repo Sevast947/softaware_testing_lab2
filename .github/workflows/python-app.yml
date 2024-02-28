@@ -36,7 +36,7 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest
         run: |
-          pytest -v tests/test_shop_acceptance.py tests/test_discount_manager.py test/test_shop.py
+          pytest -v tests/test_shop_acceptance.py tests/test_discount_manager.py tests/test_shop.py
           coverage  run "./tests/test_shop_acceptance.py" 
           coverage  run "./tests/test_discount_manager.py"
           coverage  run "./tests/test_shop.py"
