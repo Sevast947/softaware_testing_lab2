@@ -1,15 +1,19 @@
-class WrongSecurityAnswer(Exception):
+class ItemNotFoundError(Exception):
     def __init__(self, message):
         super().__init__(message)
 
-class UserNotCreated(Exception):
+class NegativeInventoryError(Exception):
     def __init__(self, message):
         super().__init__(message)
 
-class WrongPassword(Exception):
+class DuplicateIdError(Exception):
     def __init__(self, message):
         super().__init__(message)
 
-class InsufficientFunds(Exception):
+class InvalidDiscountError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+
+class IdNotInStockError(Exception):
     def __init__(self, message):
         super().__init__(message)
