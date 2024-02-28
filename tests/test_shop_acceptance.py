@@ -7,7 +7,7 @@ sys.path.insert(0, root_path)
 
 from inventory import Shop, Item 
 from discount_manager import DiscountManager 
-from exceptions import (ItemNotFoundError, NegativeInventoryError, DuplicateIdError, InvalidDiscountError, IdNotInStockError)
+from tests.exceptions import (ItemNotFoundError, NegativeInventoryError, DuplicateIdError, InvalidDiscountError, IdNotInStockError)
 class TestComicShopAcceptance(unittest.TestCase):
     
     def setUp(self):

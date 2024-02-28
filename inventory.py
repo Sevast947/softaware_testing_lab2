@@ -1,4 +1,4 @@
-from exceptions import NegativeInventoryError, DuplicateIdError, ItemNotFoundError, IdNotInStockError # Импортируем исключе
+from tests.exceptions import NegativeInventoryError, DuplicateIdError, ItemNotFoundError, IdNotInStockError # Импортируем исключе
 class Item:
     def __init__(self, title, manufacturer, id, price, inventory_count):
         if inventory_count < 0:

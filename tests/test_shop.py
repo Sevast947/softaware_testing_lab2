@@ -4,7 +4,7 @@ import sys
 
 root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, root_path)
-from exceptions import NegativeInventoryError, DuplicateIdError, ItemNotFoundError, IdNotInStockError
+from tests.exceptions import NegativeInventoryError, DuplicateIdError, ItemNotFoundError, IdNotInStockError
 from main import Item, Shop
 
 class TestComicBook(unittest.TestCase):

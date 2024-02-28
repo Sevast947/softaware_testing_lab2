@@ -1,4 +1,4 @@
-from exceptions import ItemNotFoundError, InvalidDiscountError
+from tests.exceptions import ItemNotFoundError, InvalidDiscountError
  
 class DiscountManager:
     def __init__(self, shop):

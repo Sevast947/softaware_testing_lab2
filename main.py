@@ -1,6 +1,6 @@
 from inventory import Shop, Item 
 from discount_manager import DiscountManager 
-from exceptions import (ItemNotFoundError, InvalidDiscountError, IdNotInStockError) 
+from tests.exceptions import (ItemNotFoundError, InvalidDiscountError, IdNotInStockError) 
 
 def main_menu():
     while True:
