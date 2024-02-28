@@ -3,8 +3,8 @@ import io
 from contextlib import redirect_stdout
 import os
 import sys
-# root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-# sys.path.insert(0, root_path)
+root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, root_path)
 from main import Item, Shop, DiscountManager
 from exceptions import ItemNotFoundError, DuplicateIdError, InvalidDiscountError
 
