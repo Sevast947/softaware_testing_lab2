@@ -39,7 +39,7 @@ jobs:
           pytest -v test_shop_acceptance.py test_discount_manager.py test_shop.py
           coverage  run "test_shop_acceptance.py" 
           coverage  run "test_discount_manager.py"
-          coverage  run "tests/test_shop.py"
+          coverage  run "test_shop.py"
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.2.3
