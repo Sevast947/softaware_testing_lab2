@@ -1,4 +1,5 @@
-from exceptions import ItemNotFoundError, InvalidDiscountError 
+from exceptions import ItemNotFoundError, InvalidDiscountError
+ 
 class DiscountManager:
     def __init__(self, shop):
         self.shop = shop
@@ -24,6 +25,6 @@ class DiscountManager:
             else:
                 print("Доступные скидки:")
                 for id, discount in self.discounts.items():
-                    item = next((item for item in self.shop.comics if item.id == id), None)
+                    item = next((item for item in self.shop.items if item.id == id), None)
                     if item:
                         print(f"Товар '{item.title}': {discount}% скидка.")
