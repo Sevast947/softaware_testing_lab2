@@ -1,13 +1,16 @@
 class User:
     def __init__(self, username):
         self.username = username
-        self.bank_account = ''
-    
+        self._password = ''
+
+    def set_password(self, password):
+        self._password = password
+
+    def check_password(self, password):
+        if password == self._password:
+            return True
+        else:
+            return False
+
     def get_username(self):
         return self.username
-    
-    def set_account(self, account):
-        self.bank_account = account
-
-    def get_history(self):
-        return self.bank_account.history

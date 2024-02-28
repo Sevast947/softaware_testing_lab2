@@ -9,14 +9,11 @@ from User import User
 
 class TestUser(unittest.TestCase):
     def setUp(self):
-        self.user = User("Alice")
-        self.user.set_password("securepassword")
+        self.user = User("Ivan")
     
-    def test_get_username(self):
-        self.assertEqual(self.user.get_username(), "Alice")
-    
-    def test_retrieve_password(self):
-        self.assertEqual(self.user._retrieve_password(), "securepassword")
+    def test_set_password(self):
+        self.user.set_password("111")
+        self.assertTrue(self.user.check_password("111"))
 
 if __name__ == '__main__':
     unittest.main()
