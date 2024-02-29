@@ -16,7 +16,6 @@ class TestComicShopAcceptance(unittest.TestCase):
         self.shop.add_item(self.item1)
 
     def test_complete_user_flow(self):
-        # Пользователь ищет комикс по названию
         found_items = self.shop.get_items_by_title("Bread")
         self.assertEqual(len(found_items), 1)
 

@@ -34,9 +34,9 @@ class TestComicShopIntegration(unittest.TestCase):
 
     def test_define_invalid_discount(self):
         with self.assertRaises(InvalidDiscountError):
-            self.discount_manager.define_discount("88888", -10)  # Недопустимый процент скидки
+            self.discount_manager.define_discount("88888", -10) 
         with self.assertRaises(InvalidDiscountError):
-            self.discount_manager.define_discount("88888", 150)  # Превышение 100%
+            self.discount_manager.define_discount("88888", 150) 
 
     def test_display_no_discounts(self):
         self.discount_manager.discounts = {}
