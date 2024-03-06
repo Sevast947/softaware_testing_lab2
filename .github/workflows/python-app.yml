@@ -36,8 +36,8 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest
         run: |
-          pytest -v tests/test_shop_integration.py tests/test_discount_manager.py tests/test_shop.py
-          pytest --cov=inventory --cov=discount_manager  --cov=test_shop --cov=test_shop_integration --cov=test_discount_manager --cov=test_matrix_operations
+          pytest -v tests/test_shop_acceptance.py tests/test_discount_manager.py tests/test_shop.py
+          pytest --cov=inventory --cov=discount_manager  --cov=test_shop --cov=test_shop_acceptance --cov=test_discount_manager --cov=test_matrix_operations
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.2.3
