@@ -29,22 +29,22 @@ class Shop:
         print(f"Товар '{item.title}' добавлен в магазин '{self.name}'.")
     
     def get_items_by_title(self, title):
-        found_comics = [item for item in self.items if item.title.lower() == title.lower()]
-        if not found_comics:
+        found_items = [item for item in self.items if item.title.lower() == title.lower()]
+        if not found_items:
             raise ItemNotFoundError(f"Товары с названием '{title.lower()}' не найдены.")
-        return found_comics
+        return found_items
 
     def get_items_by_manufacturer(self, manufacturer):
-        found_comics = [item for item in self.items if item.manufacturer.lower() == manufacturer.lower()]
-        if not found_comics:
-            raise ItemNotFoundError(f"Товары автора '{manufacturer.lower()}' не найдены.")
-        return found_comics
+        found_items = [item for item in self.items if item.manufacturer.lower() == manufacturer.lower()]
+        if not found_items:
+            raise ItemNotFoundError(f"Товары производителя '{manufacturer.lower()}' не найдены.")
+        return found_items
 
     def get_items_by_id(self, id):
-        found_comics = [item for item in self.items if item.id == id]
-        if not found_comics:
+        found_items = [item for item in self.items if item.id == id]
+        if not found_items:
             raise ItemNotFoundError(f"Товар с Id '{id}' не найден.")
-        return found_comics
+        return found_items
     
     def sell_item(self, item):
         if item.inventory_count <= 0:

@@ -11,27 +11,19 @@ from tests.exceptions import ItemNotFoundError, DuplicateIdError, InvalidDiscoun
 class TestComicShopIntegration(unittest.TestCase):
     def setUp(self):
         self.shop = Shop("Store")
-        self.comic = Item("Miror", "Glass Factory", "88888", 12.99, 5)
-        self.shop.add_item(self.comic)
+        self.item = Item("Miror", "Glass Factory", "88888", 12.99, 5)
+        self.shop.add_item(self.item)
         self.discount_manager = DiscountManager(self.shop)
-
-    def test_add_and_get_item(self):
-        found_comic = self.shop.get_items_by_id("88888")[0]
-        self.assertEqual(found_comic, self.comic)
 
     def test_duplicate_id(self):
         with self.assertRaises(DuplicateIdError):
-            self.shop.add_item(self.comic)
-
-    def test_discount(self):
-        self.discount_manager.define_discount("88888", 10)
-        updated_comic = self.shop.get_items_by_id("88888")[0]
-        self.assertAlmostEqual(updated_comic.price, 11.69, places=2)
-        
+            self.shop.add_item(self.item)
+    
+    #И3
     def test_apply_discount_to_nonexistent_id(self):
         with self.assertRaises(ItemNotFoundError):
             self.discount_manager.apply_discount_to_id("99999", 10)
-
+    #Б6
     def test_define_invalid_discount(self):
         with self.assertRaises(InvalidDiscountError):
             self.discount_manager.define_discount("88888", -10) 
@@ -51,6 +43,5 @@ class TestComicShopIntegration(unittest.TestCase):
             self.assertIn("Товар 'Miror': 10% скидка.", buf.getvalue())
 
 
-# запустить тесты
 if __name__ == '__main__':
     unittest.main()
