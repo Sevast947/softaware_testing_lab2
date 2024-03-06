@@ -19,11 +19,10 @@ class TestComicShopIntegration(unittest.TestCase):
         with self.assertRaises(DuplicateIdError):
             self.shop.add_item(self.item)
     
-    #И3
     def test_apply_discount_to_nonexistent_id(self):
         with self.assertRaises(ItemNotFoundError):
             self.discount_manager.apply_discount_to_id("99999", 10)
-    #Б6
+
     def test_define_invalid_discount(self):
         with self.assertRaises(InvalidDiscountError):
             self.discount_manager.define_discount("88888", -10) 

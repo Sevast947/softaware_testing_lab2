@@ -7,7 +7,7 @@ sys.path.insert(0, root_path)
 from tests.exceptions import NegativeInventoryError, DuplicateIdError, ItemNotFoundError, IdNotInStockError
 from main import Item, Shop
 
-class TestComicBook(unittest.TestCase):
+class TestItem(unittest.TestCase):
     def setUp(self):
         self.shop = Shop("Shop")
 
@@ -16,7 +16,6 @@ class TestComicBook(unittest.TestCase):
 
         self.shop.add_item(self.sample_item)
     
-    #Б1
     def test_item_creation(self):
         item = Item("Cup", "Cup factory", "12345", 9.99, 10)
         self.assertEqual(item.title, "Cup")
@@ -25,17 +24,15 @@ class TestComicBook(unittest.TestCase):
         self.assertEqual(item.price, 9.99)
         self.assertEqual(item.inventory_count, 10)
 
-    #Б3
     def test_negative_inventory_error(self):
         with self.assertRaises(NegativeInventoryError):
             Item("Cup", "Cup factory", "12345", 9.99, -5)
-    #Б2
+
     def test_update_inventory(self):
         item = Item("Cup", "Cup factory", "12345", 9.99, 10)
         item.update_inventory(15)
         self.assertEqual(item.inventory_count, 15)
 
-    #А3
     def test_duplicate_id_error(self):
         with self.assertRaises(DuplicateIdError):
             self.shop.add_item(self.sample_item)
@@ -47,20 +44,20 @@ class TestComicBook(unittest.TestCase):
     def test_item_not_found_by_manufacturer_error(self):
         with self.assertRaises(ItemNotFoundError):
             self.shop.get_items_by_manufacturer("Nonexistent Manufacturer")
-    #А5
+
     def test_item_by_manufacturer(self):
         found = self.shop.get_items_by_manufacturer("Blanket factory")
         self.assertEqual(len(found), 1)
-    #А6
+
     def test_item_not_found_by_id_error(self):
         with self.assertRaises(ItemNotFoundError):
             self.shop.get_items_by_id("00000")
-    #А4
+
     def test_not_in_stock_error(self):
         with self.assertRaises(IdNotInStockError):
             self.sample_item.inventory_count = 0
             self.shop.sell_item(self.sample_item)
-    #Б4
+
     def test_remove_item(self):
         self.shop.remove_item(self.sample_item)
         with self.assertRaises(ItemNotFoundError):
@@ -70,7 +67,6 @@ class TestComicBook(unittest.TestCase):
         with self.assertRaises(ItemNotFoundError):
             self.shop.edit_item_info(self.sample_item2)
 
-    #Б5
     def test_edit_item_info(self):
         new_title = "Cosy Blanket"
         new_manufacturer = "Cosy factory"
